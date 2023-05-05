@@ -31,6 +31,8 @@
         <velocity.version>2.3</velocity.version>
         <jwt.version>0.9.1</jwt.version>
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.5.3</mybatis-plus-generator.version>
+        <spring-boot.version>2.5.14</spring-boot.version>
     </properties>
 	
     <!-- 依赖声明 -->
@@ -41,7 +43,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.5.14</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -171,12 +173,27 @@
                 <version>${tienchin.version}</version>
             </dependency>
 
+            <!-- 渠道管理-->
+            <dependency>
+                <groupId>com.javaboy.tienchin</groupId>
+                <artifactId>tienchin-channel</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+
             <!-- Mybatis-Plus -->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
+
+            <!-- 逆向工程 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-generator.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -187,6 +204,8 @@
         <module>tienchin-quartz</module>
         <module>tienchin-generator</module>
         <module>tienchin-common</module>
+        <module>tienchin-channel</module>
+        <module>tienchin-channel</module>
     </modules>
     <packaging>pom</packaging>
 
