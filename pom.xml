@@ -180,6 +180,27 @@
                 <version>0.0.1</version>
             </dependency>
 
+            <!-- 促销活动 -->
+            <dependency>
+                <groupId>com.javaboy</groupId>
+                <artifactId>tienchin-activity</artifactId>
+                <version>${tienchin.version}</version>
+            </dependency>
+
+            <!-- 私教课程 -->
+            <dependency>
+                <groupId>com.javaboy</groupId>
+                <artifactId>tienchin-course</artifactId>
+                <version>${tienchin.version}</version>
+            </dependency>
+
+            <!-- 线索管理 -->
+            <dependency>
+                <groupId>com.javaboy</groupId>
+                <artifactId>tienchin-clue</artifactId>
+                <version>${tienchin.version}</version>
+            </dependency>
+
             <!-- Mybatis-Plus -->
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -206,6 +227,10 @@
         <module>tienchin-common</module>
         <module>tienchin-channel</module>
         <module>tienchin-channel</module>
+        <module>tienchin-activity</module>
+        <module>tienchin-course</module>
+        <module>tienchin-clue</module>
+        <module>tienchin-business</module>
     </modules>
     <packaging>pom</packaging>
 

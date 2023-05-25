@@ -67,6 +67,24 @@
             <artifactId>tienchin-channel</artifactId>
         </dependency>
 
+        <!-- 促销活动 -->
+        <dependency>
+            <groupId>com.javaboy</groupId>
+            <artifactId>tienchin-activity</artifactId>
+        </dependency>
+
+        <!-- 私教课程 -->
+        <dependency>
+            <groupId>com.javaboy</groupId>
+            <artifactId>tienchin-course</artifactId>
+        </dependency>
+
+        <!-- 线索管理 -->
+        <dependency>
+            <groupId>com.javaboy</groupId>
+            <artifactId>tienchin-clue</artifactId>
+        </dependency>
+
         <!-- 单元测试 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

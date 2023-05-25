@@ -3,6 +3,8 @@ package com.javaboy.tienchin.channel.domain;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.javaboy.tienchin.common.annotation.Excel;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -22,27 +24,32 @@ public class Channel implements Serializable {
     /**
      * id
      */
-    @TableId(value = "chinnel_id", type = IdType.AUTO)
-    private Integer chinnelId;
+    @TableId(value = "channel_id", type = IdType.AUTO)
+    @Excel(name = "渠道编号", cellType = Excel.ColumnType.NUMERIC)
+    private Integer channelId;
 
     /**
      * 渠道名称
      */
+    @Excel(name = "渠道名称")
     private String channelName;
 
     /**
      * 渠道状态 0 是true 1是false
      */
+    @Excel(name = "渠道状态", readConverterExp = "1=正常，0=禁用")
     private Byte status;
 
     /**
      * 备注信息
      */
+    @Excel(name = "备注信息")
     private String remark;
 
     /**
      * 渠道类型: 1 线上渠道, 2 线下渠道
      */
+    @Excel(name = "渠道类型", readConverterExp = "1=线上渠道，2=线下渠道")
     private Integer type;
 
     /**
@@ -70,12 +77,12 @@ public class Channel implements Serializable {
      */
     private Integer delFlag;
 
-    public Integer getChinnelId() {
-        return chinnelId;
+    public Integer getChannelId() {
+        return channelId;
     }
 
-    public void setChinnelId(Integer chinnelId) {
-        this.chinnelId = chinnelId;
+    public void setChannelId(Integer channelId) {
+        this.channelId = channelId;
     }
 
     public String getChannelName() {
@@ -153,7 +160,7 @@ public class Channel implements Serializable {
     @Override
     public String toString() {
         return "Channel{" +
-            "chinnelId = " + chinnelId +
+            "channelId = " + channelId +
             ", channelName = " + channelName +
             ", status = " + status +
             ", remark = " + remark +
