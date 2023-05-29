@@ -2,20 +2,22 @@ package com.javaboy.tienchin.clue.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.javaboy.tienchin.clue.domain.Assignment;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.javaboy.tienchin.assignment.domain.Assignment;
+import com.javaboy.tienchin.assignment.service.IAssignmentService;
+import com.javaboy.tienchin.business.domain.Business;
+import com.javaboy.tienchin.business.service.IBusinessService;
 import com.javaboy.tienchin.clue.domain.Clue;
-import com.javaboy.tienchin.clue.domain.FollowRecord;
 import com.javaboy.tienchin.clue.domain.vo.ClueDetails;
 import com.javaboy.tienchin.clue.domain.vo.ClueSummary;
 import com.javaboy.tienchin.clue.domain.vo.ClueVo;
 import com.javaboy.tienchin.clue.mapper.ClueMapper;
-import com.javaboy.tienchin.clue.service.IAssignmentService;
 import com.javaboy.tienchin.clue.service.IClueService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.javaboy.tienchin.clue.service.IFollowRecordService;
 import com.javaboy.tienchin.common.constant.TienChinConstants;
 import com.javaboy.tienchin.common.core.domain.AjaxResult;
 import com.javaboy.tienchin.common.utils.SecurityUtils;
+import com.javaboy.tienchin.follow.domain.FollowRecord;
+import com.javaboy.tienchin.follow.service.IFollowRecordService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,9 @@ public class ClueServiceImpl extends ServiceImpl<ClueMapper, Clue> implements IC
 
     @Autowired
     private IFollowRecordService followRecordService;
+
+    @Autowired
+    private IBusinessService businessService;
 
     @Override
     @Transactional
@@ -174,5 +179,49 @@ public class ClueServiceImpl extends ServiceImpl<ClueMapper, Clue> implements IC
         updateWrapper.lambda().set(Clue::getDelFlag, 1).in(Clue::getClueId, clueIds);
 
         return update(updateWrapper) ? AjaxResult.success("更新成功") : AjaxResult.error("更新失败");
+    }
+
+    @Override
+    @Transactional
+    public AjaxResult clueToBusiness(Integer clueId) {
+        try {
+            Clue clue = getById(clueId);
+            Business business = new Business();
+            BeanUtils.copyProperties(clue, business);
+            business.setCreateBy(SecurityUtils.getUsername());
+            business.setCreateTime(LocalDateTime.now());
+            business.setEndTime(null);
+            business.setFailCount(0);
+            business.setNextTime(null);
+            business.setRemark(null);
+            business.setUpdateBy(null);
+            business.setUpdateTime(null);
+            business.setNextTime(LocalDateTime.now().plusHours(TienChinConstants.NEXT_FOLLOW_TIME));
+            business.setStatus(TienChinConstants.BUSINESS_ALLOCATED);
+
+            // 1. 删除线索
+            UpdateWrapper<Clue> updateWrapper = new UpdateWrapper<>();
+            updateWrapper.lambda().set(Clue::getDelFlag, 1).eq(Clue::getClueId, clueId);
+            update(updateWrapper);
+            // 2. 添加商机
+            businessService.save(business);
+            // 3. 默认情况，将商机分配给 admin ，将来由 admin 再将商机分配给不同的客户专员
+            Assignment assignment = new Assignment();
+            assignment.setUserName(TienChinConstants.ADMIN_USERNAME);
+            assignment.setType(TienChinConstants.BUSINESS_TYPE);
+            assignment.setCreateBy(SecurityUtils.getUsername());
+            assignment.setCreateTime(LocalDateTime.now());
+            assignment.setAssignId(business.getBusinessId());
+            assignment.setDeptId(TienChinConstants.ADMIN_DEPT_ID);
+            assignment.setUserId(TienChinConstants.ADMIN_ID);
+            assignment.setLatest(true);
+            assignmentService.save(assignment);
+
+            return AjaxResult.success("线索成功转为商机");
+        } catch (BeansException e) {
+
+        }
+
+        return AjaxResult.error("转换失败");
     }
 }

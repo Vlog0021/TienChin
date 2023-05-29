@@ -1,4 +1,4 @@
-package com.javaboy.tienchin.clue.domain;
+package com.javaboy.tienchin.assignment.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 

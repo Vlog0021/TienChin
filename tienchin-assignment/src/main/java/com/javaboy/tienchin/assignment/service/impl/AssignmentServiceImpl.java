@@ -1,11 +1,10 @@
-package com.javaboy.tienchin.clue.service.impl;
+package com.javaboy.tienchin.assignment.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.javaboy.tienchin.clue.domain.Assignment;
-import com.javaboy.tienchin.clue.mapper.AssignmentMapper;
-import com.javaboy.tienchin.clue.service.IAssignmentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.javaboy.tienchin.common.constant.TienChinConstants;
+import com.javaboy.tienchin.assignment.domain.Assignment;
+import com.javaboy.tienchin.assignment.mapper.AssignmentMapper;
+import com.javaboy.tienchin.assignment.service.IAssignmentService;
 import com.javaboy.tienchin.common.core.domain.AjaxResult;
 import com.javaboy.tienchin.common.utils.SecurityUtils;
 import org.springframework.stereotype.Service;
@@ -34,7 +33,7 @@ public class AssignmentServiceImpl extends ServiceImpl<AssignmentMapper, Assignm
             update(updateWrapper);
 
             // 2. 分配线索
-            assignment.setType(TienChinConstants.CLUE_TYPE);
+            // assignment.setType(TienChinConstants.CLUE_TYPE);
             assignment.setCreateBy(SecurityUtils.getUsername());
             assignment.setCreateTime(LocalDateTime.now());
             assignment.setLatest(true);

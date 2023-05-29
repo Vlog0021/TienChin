@@ -1,4 +1,4 @@
-package com.javaboy.tienchin.clue.domain;
+package com.javaboy.tienchin.follow.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;

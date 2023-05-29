@@ -1,7 +1,7 @@
 package com.javaboy.tienchin.web.controller.tienchin.clue;
 
-import com.javaboy.tienchin.clue.domain.Assignment;
-import com.javaboy.tienchin.clue.service.IAssignmentService;
+import com.javaboy.tienchin.assignment.domain.Assignment;
+import com.javaboy.tienchin.assignment.service.IAssignmentService;
 import com.javaboy.tienchin.common.core.domain.AjaxResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -29,6 +29,12 @@ public class AssignmentController {
     @PostMapping
     @PreAuthorize("@ss.hasPermi('tienchin:clue:assignment')")
     public AjaxResult assignClue(@Validated @RequestBody Assignment assignment) {
+        return assignmentService.assignClue(assignment);
+    }
+
+    @PostMapping("/business")
+    @PreAuthorize("@ss.hasPermi('tienchin:business:assignment')")
+    public AjaxResult businessClue(@Validated @RequestBody Assignment assignment) {
         return assignmentService.assignClue(assignment);
     }
 }

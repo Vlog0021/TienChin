@@ -201,6 +201,27 @@
                 <version>${tienchin.version}</version>
             </dependency>
 
+            <!-- 商机管理 -->
+            <dependency>
+                <groupId>com.javaboy</groupId>
+                <artifactId>tienchin-business</artifactId>
+                <version>${tienchin.version}</version>
+            </dependency>
+
+            <!-- 商机/线索分配模块 -->
+            <dependency>
+                <groupId>com.javaboy</groupId>
+                <artifactId>tienchin-assignment</artifactId>
+                <version>${tienchin.version}</version>
+            </dependency>
+
+            <!-- 商机/线索跟进模块 -->
+            <dependency>
+                <groupId>com.javaboy</groupId>
+                <artifactId>tienchin-follow</artifactId>
+                <version>${tienchin.version}</version>
+            </dependency>
+
             <!-- Mybatis-Plus -->
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -231,6 +252,8 @@
         <module>tienchin-course</module>
         <module>tienchin-clue</module>
         <module>tienchin-business</module>
+        <module>tienchin-assignment</module>
+        <module>tienchin-follow</module>
     </modules>
     <packaging>pom</packaging>
 

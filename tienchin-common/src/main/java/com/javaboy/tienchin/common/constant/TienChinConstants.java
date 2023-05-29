@@ -27,4 +27,25 @@ public interface TienChinConstants {
      * 伪线索
      */
     int CLUE_INVALIDATE = 4;
+
+    /**
+     * 已分配
+     */
+    int BUSINESS_ALLOCATED = 1;
+
+    /**
+     * 进行中
+     */
+    int BUSINESS_FOLLOING = 2;
+
+    /**
+     * 已回收
+     */
+    int BUSINESS_RECOVERY = 3;
+
+    String ADMIN_USERNAME = "admin";
+
+    Long ADMIN_ID = 1L;
+
+    Long ADMIN_DEPT_ID = 103L;
 }

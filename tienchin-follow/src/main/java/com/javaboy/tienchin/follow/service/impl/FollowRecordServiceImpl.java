@@ -1,12 +1,12 @@
-package com.javaboy.tienchin.clue.service.impl;
+package com.javaboy.tienchin.follow.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.javaboy.tienchin.clue.domain.FollowRecord;
-import com.javaboy.tienchin.clue.mapper.FollowRecordMapper;
-import com.javaboy.tienchin.clue.service.IFollowRecordService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.javaboy.tienchin.common.constant.TienChinConstants;
 import com.javaboy.tienchin.common.core.domain.AjaxResult;
+import com.javaboy.tienchin.follow.domain.FollowRecord;
+import com.javaboy.tienchin.follow.mapper.FollowRecordMapper;
+import com.javaboy.tienchin.follow.service.IFollowRecordService;
 import org.springframework.stereotype.Service;
 
 /**

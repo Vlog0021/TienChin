@@ -30,6 +30,23 @@
             <artifactId>tienchin-common</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.javaboy</groupId>
+            <artifactId>tienchin-business</artifactId>
+        </dependency>
+
+        <!-- 商机/线索分配模块 -->
+        <dependency>
+            <groupId>com.javaboy</groupId>
+            <artifactId>tienchin-assignment</artifactId>
+        </dependency>
+
+        <!-- 商机/线索跟进模块 -->
+        <dependency>
+            <groupId>com.javaboy</groupId>
+            <artifactId>tienchin-follow</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

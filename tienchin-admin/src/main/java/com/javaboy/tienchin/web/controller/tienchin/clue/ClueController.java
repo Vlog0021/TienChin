@@ -135,6 +135,14 @@ public class ClueController extends BaseController {
         return clueService.invalidClueFollow(clueDetails);
     }
 
+    @PreAuthorize("@ss.hasPermi('tienchin:clue:follow')")
+    @Log(title = "线索转商机", businessType = BusinessType.UPDATE)
+    @PostMapping("/to_business/{clueId}")
+    public AjaxResult clueToBusiness(@PathVariable Integer clueId) {
+
+        return clueService.clueToBusiness(clueId);
+    }
+
     @PreAuthorize("@ss.hasPermi('tienchin:clue:edit')")
     @GetMapping("/summary/{clueId}")
     public AjaxResult getClueSummaryByClueId(@PathVariable Integer clueId) {

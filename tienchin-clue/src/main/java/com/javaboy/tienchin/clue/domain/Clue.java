@@ -131,7 +131,7 @@ public class Clue implements Serializable {
     /**
      * 更新人
      */
-    private LocalDateTime updateBy;
+    private String updateBy;
 
     /**
      * 是否删除
@@ -299,11 +299,11 @@ public class Clue implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public LocalDateTime getUpdateBy() {
+    public String getUpdateBy() {
         return updateBy;
     }
 
-    public void setUpdateBy(LocalDateTime updateBy) {
+    public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy;
     }
 

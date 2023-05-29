@@ -1,7 +1,7 @@
 package com.javaboy.tienchin.web.controller.tienchin.clue;
 
-import com.javaboy.tienchin.clue.service.IFollowRecordService;
 import com.javaboy.tienchin.common.core.domain.AjaxResult;
+import com.javaboy.tienchin.follow.service.IFollowRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;

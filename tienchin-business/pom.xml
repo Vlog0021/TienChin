@@ -18,4 +18,29 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <description>
+        商机管理模块
+    </description>
+
+    <dependencies>
+
+        <!-- 通用工具 -->
+        <dependency>
+            <groupId>com.javaboy.tienchin</groupId>
+            <artifactId>tienchin-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.javaboy</groupId>
+            <artifactId>tienchin-assignment</artifactId>
+        </dependency>
+
+        <!-- 商机/线索跟进模块 -->
+        <dependency>
+            <groupId>com.javaboy</groupId>
+            <artifactId>tienchin-follow</artifactId>
+        </dependency>
+
+    </dependencies>
+
 </project>

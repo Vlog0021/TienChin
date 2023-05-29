@@ -85,6 +85,12 @@
             <artifactId>tienchin-clue</artifactId>
         </dependency>
 
+        <!-- 商机管理 -->
+        <dependency>
+            <groupId>com.javaboy</groupId>
+            <artifactId>tienchin-business</artifactId>
+        </dependency>
+
         <!-- 单元测试 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
